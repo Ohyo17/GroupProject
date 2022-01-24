@@ -88,6 +88,25 @@ def scissor(x,y):
                print("Invalid move Scissors")
 
 
+def score():
+      global win,loss
+
+      if(win>loss):
+               print("You are the winner")
+               print("Thank you for playing Speed Rocks,Paper,Scissor\n")
+               s.close()
+
+      elif(win == loss):
+               print("It's Deuce")
+               print("Thank you for playing Speed Rocks,Paper,Scissor\n")
+               s.close()
+
+      else:
+               print("You are the loser")
+               print("Thank you for playing Speed Rocks,Paper,Scissor\n")
+               s.close()
+
+
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))
