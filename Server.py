@@ -15,17 +15,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s :
                        conn2, addr2 = s.accept()
                        with conn2:
                               print("Connected to", addr2)
-                              while True:
+                               while True:
                                     try:
                                         conn1.sendall(b"\n")
                                         conn2.sendall(b"\n")
-                                        data = b""
-                                        while not data:
-                                                 data = conn1.recv(1024)
+                                        
+                                        data = conn1.recv(1024)
                                         conn2.sendall(data)
-                                        data = b""
-                                        while not data:
-                                                    data = conn2.recv(1024)
+                                        
+                                        data = conn2.recv(1024)
                                         conn1.sendall(data)
+
                                     except:
-                                           s.close()
+                                           conn1.close()
+                                           conn2.close()
